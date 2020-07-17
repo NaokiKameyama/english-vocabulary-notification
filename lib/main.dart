@@ -86,16 +86,16 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     ];
 
-    // Random rnd;
-    // int min = 0;
-    // int max = words.length;
-    // rnd = new Random();
-    // var r = min + rnd.nextInt(max - min);
+    Random rnd;
+    int min = 0;
+    int max = words.length;
+    rnd = new Random();
+    var r = min + rnd.nextInt(max - min);
 
-    print(randNum());
+    print(r);
     await flutterLocalNotificationsPlugin.periodicallyShow(0, 
-      words[randNum()]['eigo'],
-      words[randNum()]['mean'],
+      words[r]['eigo'],
+      words[r]['mean'],
       RepeatInterval.EveryMinute, platformChannelSpecifics);
     // await flutterLocalNotificationsPlugin.show(0, 
     //   words[randNum()]['eigo'],
@@ -103,17 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //   platformChannelSpecifics,
     //   payload: 'test oayload');
   }
-
-
-  int randNum() {
-    Random rnd;
-    int min = 0;
-    int max = 3;
-    rnd = new Random();
-    var r = min + rnd.nextInt(max - min);
-    return r;
-  }
-
 
   @override
   void initState() {
