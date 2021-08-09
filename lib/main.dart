@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter/cupertino.dart';
@@ -53,7 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
   var initializationSettings;
 
   void _showNotification() async {
-    await _demoNotification();
+    const oneSec = const Duration(seconds:10);
+    new Timer.periodic(oneSec, (Timer t) => _demoNotification());
+    // await _demoNotification();
   }
 
   Future<void> _demoNotification() async {
@@ -84,6 +88,21 @@ class _MyHomePageState extends State<MyHomePage> {
       'eigo': 'sleep',
       'mean': '眠る'
       }
+      ,
+      {
+      'eigo': 'walk',
+      'mean': '歩く'
+      }
+      ,
+      {
+      'eigo': 'get',
+      'mean': '得る'
+      }
+      ,
+      {
+      'eigo': 'push',
+      'mean': '押す'
+      }
     ];
 
     Random rnd;
@@ -92,16 +111,17 @@ class _MyHomePageState extends State<MyHomePage> {
     rnd = new Random();
     var r = min + rnd.nextInt(max - min);
 
-    print(r);
-    await flutterLocalNotificationsPlugin.periodicallyShow(0, 
+    print(words[r]['eigo']);
+    print(words[r]['mean']);
+    // await flutterLocalNotificationsPlugin.periodicallyShow(0,
+    //   words[r]['eigo'],
+    //   words[r]['mean'],
+    //   RepeatInterval.EveryMinute, platformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.show(0,
       words[r]['eigo'],
       words[r]['mean'],
-      RepeatInterval.EveryMinute, platformChannelSpecifics);
-    // await flutterLocalNotificationsPlugin.show(0, 
-    //   words[randNum()]['eigo'],
-    //   words[randNum()]['mean'],
-    //   platformChannelSpecifics,
-    //   payload: 'test oayload');
+      platformChannelSpecifics,
+      payload: 'test oayload');
   }
 
   @override
