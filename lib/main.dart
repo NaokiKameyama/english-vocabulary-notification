@@ -36,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var initializationSettings;
 
   void _showNotification() async {
+    print("通知開始");
     const oneSec = const Duration(seconds:10);
     new Timer.periodic(oneSec, (Timer t) => _demoNotification());
     // await _demoNotification();
@@ -83,6 +84,21 @@ class _MyHomePageState extends State<MyHomePage> {
       {
       'eigo': 'push',
       'mean': '押す'
+      }
+      ,
+      {
+      'eigo': 'run',
+      'mean': '走る'
+      }
+      ,
+      {
+      'eigo': 'buy',
+      'mean': '買う'
+      }
+      ,
+      {
+      'eigo': 'kick',
+      'mean': '蹴る'
       }
     ];
 
