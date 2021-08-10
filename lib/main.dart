@@ -69,33 +69,27 @@ class _MyHomePageState extends State<MyHomePage> {
       {
       'eigo': 'sleep',
       'mean': '眠る'
-      }
-      ,
+      },
       {
       'eigo': 'walk',
       'mean': '歩く'
-      }
-      ,
+      },
       {
       'eigo': 'get',
       'mean': '得る'
-      }
-      ,
+      },
       {
       'eigo': 'push',
       'mean': '押す'
-      }
-      ,
+      },
       {
       'eigo': 'run',
       'mean': '走る'
-      }
-      ,
+      },
       {
       'eigo': 'buy',
       'mean': '買う'
-      }
-      ,
+      },
       {
       'eigo': 'kick',
       'mean': '蹴る'
